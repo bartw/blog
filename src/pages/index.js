@@ -13,7 +13,7 @@ export default () => (
     <main className="bg-white text-black p-10">Hello blog!</main>
     <footer className="bg-black text-white">
       <p className="text-xs px-10 py-5">
-        Fork me at{" "}
+        Fork me on{" "}
         <a
           href="https://github.com/bartw/blog"
           target="_blank"
