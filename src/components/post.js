@@ -9,19 +9,30 @@ const renderAst = new rehypeReact({
   components: { p: Paragraph, a: TextExternalLink }
 }).Compiler;
 
+const WithLink = ({ slug, children }) =>
+  slug ? (
+    <Link className="no-underline hover:underline" to={slug}>
+      {children}
+    </Link>
+  ) : (
+    children
+  );
+
 export default ({ date, slug, title, htmlAst }) => (
   <article className="mt-4">
     <header>
       <time className="text-sm text-gray-600" dateTime={date}>
         {date}
       </time>
-      <Link to={slug}>
-        <h1 className="font-bold no-underline hover:underline">{title}</h1>
-      </Link>
+      <WithLink slug={slug}>
+        <h1 className="font-bold">{title}</h1>
+      </WithLink>
     </header>
     <div className="mt-2">{renderAst(htmlAst)}</div>
-    <Link className="text-sm text-gray-600" to={slug}>
-      Click here to continue reading
-    </Link>
+    {slug && (
+      <Link className="text-sm text-gray-600" to={slug}>
+        Click here to continue reading
+      </Link>
+    )}
   </article>
 );
