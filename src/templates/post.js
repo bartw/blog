@@ -7,7 +7,7 @@ import Post from "../components/post";
 export default ({
   data: {
     markdownRemark: {
-      slug,
+      fields: { slug },
       frontmatter: { title, date },
       htmlAst
     }

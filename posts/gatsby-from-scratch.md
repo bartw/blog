@@ -13,9 +13,26 @@ I'm not going to use a starter because I want to learn how to set everything up 
 mkdir gatsby-from-scratch
 cd gatsby-from-scratch
 git init
+touch .gitignore
 echo "12" >> .nvmrc
-echo "node_modules" >> .gitignore
 nvm use
+```
+
+`.gitignore`
+
+```
+node_modules
+.cache
+public
+```
+
+I started by creating a fresh folder for my project. 
+
+In this folder I initiated a Git repo to be able to commit my work. I created a `.gitignore` file to exclude some folders from being commited. 
+
+And I created an `.nvmrc` file to make sure I'm on node 12. The `nvm use` command switches this terminal session to my preferred node version.
+
+```shell
 npm init -y
 npm install --save react react-dom gatsby
 npm install --save-dev prettier
@@ -24,14 +41,6 @@ echo "module.exports = {};" >> gatsby-config.js
 mkdir src
 mkdir src/pages
 touch src/pages/index.js
-```
-
-I need to ignore some stuff in `.gitignore`.
-
-```
-node_modules
-.cache
-public
 ```
 
 The `index.js` needs some "Hello world!".
