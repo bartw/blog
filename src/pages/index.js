@@ -13,8 +13,8 @@ export default () => {
       <Section>
         <Paragraph>
           Some time ago I noticed there was money to be made on{" "}
-          <TextExternalLink href="https://medium.com/">Medium</TextExternalLink>.
-          I joined the{" "}
+          <TextExternalLink href="https://medium.com/">Medium</TextExternalLink>
+          . I joined the{" "}
           <TextExternalLink href="https://medium.com/creators">
             Medium Partner Program
           </TextExternalLink>{" "}

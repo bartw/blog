@@ -35,15 +35,11 @@ I created an `.nvmrc` file so [nvm](https://github.com/nvm-sh/nvm) can make sure
 ```shell
 npm init -y
 npm install --save react react-dom gatsby
-npm install --save-dev prettier
-echo "{}" >> .prettierrc
 echo "module.exports = {};" >> gatsby-config.js
 mkdir src
 mkdir src/pages
 touch src/pages/index.js
 ```
-
-The `index.js` needs some "Hello world!".
 
 ```js
 import React from "react";
@@ -51,7 +47,16 @@ import React from "react";
 export default () => <div>Hello world!</div>;
 ```
 
-Just some scripts in `package.json` to be able to start it all.
+Next up I created an [npm](https://www.npmjs.com/) package and installed React and Gatsby. I added an empty Gatsby configuration to `gatsby-config.js`.
+
+Then I created `index.js` file with the famous "Hello world!" words.
+
+```shell
+npm install --save-dev prettier
+echo "{}" >> .prettierrc
+```
+
+Gatsby ships with [Eslint](https://www.gatsbyjs.org/docs/eslint/) built in. But I also like me some [Prettier](https://prettier.io/) on the side.
 
 ```json
 "scripts": {
@@ -64,9 +69,11 @@ Just some scripts in `package.json` to be able to start it all.
 }
 ```
 
-Time to start
+All I need now is some scripts in `package.json` to be able to do all the things.
 
 ```shell
 npm run format
 npm start
 ```
+
+Now I can browse to `http://localhost:8000/` and see my Gatsby site running!
