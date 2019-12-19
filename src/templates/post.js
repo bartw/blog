@@ -9,14 +9,14 @@ export default ({
     markdownRemark: {
       slug,
       frontmatter: { title, date },
-      html
+      htmlAst
     }
   }
 }) => {
   return (
     <Layout>
       <Section>
-        <Post slug={slug} title={title} date={date} html={html} />
+        <Post slug={slug} title={title} date={date} htmlAst={htmlAst} />
       </Section>
     </Layout>
   );
@@ -32,7 +32,7 @@ export const query = graphql`
         title
         date
       }
-      html
+      htmlAst
     }
   }
 `;

@@ -17,7 +17,7 @@ export const usePosts = () => {
                 title
                 date
               }
-              excerpt(format: HTML, pruneLength: 250)
+              excerptAst(pruneLength: 250)
             }
           }
         }
@@ -30,14 +30,14 @@ export const usePosts = () => {
         id,
         fields: { slug },
         frontmatter: { title, date },
-        excerpt
+        excerptAst
       }
     }) => ({
       id,
       slug,
       title,
       date,
-      excerpt
+      excerptAst
     })
   );
 };
