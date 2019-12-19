@@ -3,6 +3,7 @@ import Layout from "../components/layout";
 import Section from "../components/section";
 import Post from "../components/post";
 import Paragraph from "../components/paragraph";
+import TextExternalLink from "../components/text-external-link";
 import { usePosts } from "../hooks/use-posts";
 
 export default () => {
@@ -11,14 +12,26 @@ export default () => {
     <Layout>
       <Section>
         <Paragraph>
-          Some time ago I noticed there was money to be made on Medium. I joined
-          the Medium Partner Program and moved some of my posts behind the
-          metered paywall. Time to become a millionaire.
+          Some time ago I noticed there was money to be made on{" "}
+          <TextExternalLink to="https://medium.com/">Medium</TextExternalLink>.
+          I joined the{" "}
+          <TextExternalLink to="https://medium.com/creators">
+            Medium Partner Program
+          </TextExternalLink>{" "}
+          and moved some of my posts behind the{" "}
+          <TextExternalLink to="https://help.medium.com/hc/en-us/articles/360018834314-Stories-that-are-part-of-the-metered-paywall">
+            metered paywall
+          </TextExternalLink>
+          . Time to become a millionaire.
         </Paragraph>
         <Paragraph>
-          I quickly wrote a new blogpost and shared it on Reddit. This received
-          some backlash as someone commented "Too bad you care about money more
-          than sharing it. ¯\(ツ)/¯". That hurt, but it was also kinda true.
+          I quickly wrote a new blogpost and shared it on{" "}
+          <TextExternalLink to="https://www.reddit.com/">
+            Reddit
+          </TextExternalLink>
+          . This received some backlash as someone commented "Too bad you care
+          about money more than sharing it. ¯\(ツ)/¯". That hurt, but it was
+          also kinda true.
         </Paragraph>
         <Paragraph>
           This sparked a thought in my head. I can just create my own blog.
@@ -28,7 +41,13 @@ export default () => {
       </Section>
       <Section>
         {posts.map(({ id, slug, title, date, excerptAst }) => (
-          <Post key={id} slug={slug} title={title} date={date} htmlAst={excerptAst} />
+          <Post
+            key={id}
+            slug={slug}
+            title={title}
+            date={date}
+            htmlAst={excerptAst}
+          />
         ))}
       </Section>
     </Layout>
