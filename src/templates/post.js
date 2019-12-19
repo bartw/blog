@@ -14,8 +14,10 @@ export default ({
     <Layout>
       <section className="bg-white text-black p-10">
         <header>
-          <h1>{title}</h1>
-          <time dateTime={date}>{date}</time>
+          <h1 className="font-bold">{title}</h1>
+          <time className="mt-2 text-sm text-gray-600" dateTime={date}>
+            {date}
+          </time>
         </header>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </section>

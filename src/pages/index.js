@@ -29,9 +29,11 @@ export default () => {
           <article key={id}>
             <header>
               <Link to={slug}>
-                <h1>{title}</h1>
+                <h1 className="font-bold">{title}</h1>
               </Link>
-              <time dateTime={date}>{date}</time>
+              <time className="mt-2 text-sm text-gray-600" dateTime={date}>
+                {date}
+              </time>
             </header>
             <div dangerouslySetInnerHTML={{ __html: excerpt }} />
           </article>
