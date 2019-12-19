@@ -13,7 +13,7 @@ export default ({ children }) => (
       <title>Blog - Bart Wijnants</title>
       <meta name="description" content="Bart Wijnants' Blog" />
     </Helmet>
-    <div className="bg-white px-5 md:px-10 lg:px-20 py-10 antialiased">
+    <div className="bg-white px-5 md:px-10 lg:px-32 py-10 antialiased">
       <header className="flex items-center justify-between flex-wrap text-black text-xl">
         <Link to="/">
           <img className="inline-block w-10 mr-4" alt="logo" src={logo} />

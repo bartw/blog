@@ -20,5 +20,8 @@ export default ({ date, slug, title, htmlAst }) => (
       </Link>
     </header>
     <div className="mt-2">{renderAst(htmlAst)}</div>
+    <Link className="text-sm text-gray-600" to={slug}>
+      Click here to continue reading
+    </Link>
   </article>
 );
