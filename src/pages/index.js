@@ -1,14 +1,15 @@
 import React from "react";
 import Layout from "../components/layout";
+import Section from "../components/section";
+import Post from "../components/post";
 import { usePosts } from "../hooks/use-posts";
-import { Link } from "gatsby";
 
 export default () => {
   const posts = usePosts();
   return (
     <Layout>
-      <section className="bg-yellow-500 text-black p-10">
-        <p>
+      <Section>
+        <p className="mt-2">
           Some time ago I noticed there was money to be made on Medium. I joined
           the Medium Partner Program and moved some of my posts behind the
           metered paywall. Time to become a millionaire.
@@ -23,22 +24,12 @@ export default () => {
           Maybe add some ads. And still become a millionaire. I can just blog
           about building a blog. Easy does it.
         </p>
-      </section>
-      <section className="bg-white text-black p-10">
+      </Section>
+      <Section>
         {posts.map(({ id, slug, title, date, excerpt }) => (
-          <article key={id}>
-            <header>
-              <Link to={slug}>
-                <h1 className="font-bold">{title}</h1>
-              </Link>
-              <time className="mt-2 text-sm text-gray-600" dateTime={date}>
-                {date}
-              </time>
-            </header>
-            <div dangerouslySetInnerHTML={{ __html: excerpt }} />
-          </article>
+          <Post key={id} slug={slug} title={title} date={date} html={excerpt} />
         ))}
-      </section>
+      </Section>
     </Layout>
   );
 };

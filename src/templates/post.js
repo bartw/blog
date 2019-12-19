@@ -1,10 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
+import Section from "../components/section";
+import Post from "../components/post";
 
 export default ({
   data: {
     markdownRemark: {
+      slug,
       frontmatter: { title, date },
       html
     }
@@ -12,15 +15,9 @@ export default ({
 }) => {
   return (
     <Layout>
-      <section className="bg-white text-black p-10">
-        <header>
-          <h1 className="font-bold">{title}</h1>
-          <time className="mt-2 text-sm text-gray-600" dateTime={date}>
-            {date}
-          </time>
-        </header>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      </section>
+      <Section>
+        <Post slug={slug} title={title} date={date} html={html} />
+      </Section>
     </Layout>
   );
 };
@@ -28,6 +25,9 @@ export default ({
 export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
+      fields {
+        slug
+      }
       frontmatter {
         title
         date
