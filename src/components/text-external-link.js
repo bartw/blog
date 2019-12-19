@@ -1,7 +1,8 @@
 import React from "react";
+import ExtralLink from "./external-link";
 
-export default ({ to, className, children }) => (
-  <a href={to} target="_blank" rel="noopener noreferrer" className={`underline font-medium ${className}`}>
+export default ({ href, className, children }) => (
+  <ExtralLink href={href} className={`underline font-medium ${className}`}>
     {children}
-  </a>
+  </ExtralLink>
 );

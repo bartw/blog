@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "gatsby";
 import rehypeReact from "rehype-react";
 import Paragraph from "./paragraph";
+import TextExternalLink from "./text-external-link";
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-  components: { p: Paragraph }
+  components: { p: Paragraph, a: TextExternalLink }
 }).Compiler;
 
 export default ({ date, slug, title, htmlAst }) => (

@@ -22,10 +22,10 @@ export default ({ children }) => (
           </h1>
         </Link>
         <div className="align-middle">
-          <ExternalLink to="https://bartwijnants.be">
+          <ExternalLink href="https://bartwijnants.be">
             <FontAwesomeIcon icon={faAddressCard} fixedWidth />
           </ExternalLink>
-          <ExternalLink className="ml-2" to="https://github.com/bartw/blog">
+          <ExternalLink className="ml-2" href="https://github.com/bartw/blog">
             <FontAwesomeIcon icon={faGithub} fixedWidth />
           </ExternalLink>
         </div>

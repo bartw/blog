@@ -13,20 +13,20 @@ export default () => {
       <Section>
         <Paragraph>
           Some time ago I noticed there was money to be made on{" "}
-          <TextExternalLink to="https://medium.com/">Medium</TextExternalLink>.
+          <TextExternalLink href="https://medium.com/">Medium</TextExternalLink>.
           I joined the{" "}
-          <TextExternalLink to="https://medium.com/creators">
+          <TextExternalLink href="https://medium.com/creators">
             Medium Partner Program
           </TextExternalLink>{" "}
           and moved some of my posts behind the{" "}
-          <TextExternalLink to="https://help.medium.com/hc/en-us/articles/360018834314-Stories-that-are-part-of-the-metered-paywall">
+          <TextExternalLink href="https://help.medium.com/hc/en-us/articles/360018834314-Stories-that-are-part-of-the-metered-paywall">
             metered paywall
           </TextExternalLink>
           . Time to become a millionaire.
         </Paragraph>
         <Paragraph>
           I quickly wrote a new blogpost and shared it on{" "}
-          <TextExternalLink to="https://www.reddit.com/">
+          <TextExternalLink href="https://www.reddit.com/">
             Reddit
           </TextExternalLink>
           . This received some backlash as someone commented "Too bad you care
