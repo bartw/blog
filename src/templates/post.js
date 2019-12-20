@@ -7,7 +7,7 @@ import Post from "../components/post";
 export default ({
   data: {
     markdownRemark: {
-      frontmatter: { title, date },
+      frontmatter: { title, date, repo },
       htmlAst
     }
   }
@@ -15,7 +15,7 @@ export default ({
   return (
     <Layout>
       <Section>
-        <Post title={title} date={date} htmlAst={htmlAst} />
+        <Post title={title} date={date} repo={repo} htmlAst={htmlAst} />
       </Section>
     </Layout>
   );
@@ -26,7 +26,8 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
-        date
+        date,
+        repo
       }
       htmlAst
     }

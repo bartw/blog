@@ -1,6 +1,7 @@
 ---
 title: "Gatsby From Scratch"
 date: "2019-12-19"
+repo: "https://github.com/bartw/gatsby-from-scratch"
 ---
 
 Time to start building.

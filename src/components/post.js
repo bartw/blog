@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "gatsby";
 import rehypeReact from "rehype-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Paragraph from "./paragraph";
+import ExternalLink from "./external-link";
 import TextExternalLink from "./text-external-link";
 
 const renderAst = new rehypeReact({
@@ -18,12 +21,17 @@ const WithLink = ({ slug, children }) =>
     children
   );
 
-export default ({ date, slug, title, htmlAst }) => (
+export default ({ date, slug, title, repo, htmlAst }) => (
   <article className="mt-4">
     <header>
-      <time className="text-sm text-gray-600" dateTime={date}>
-        {date}
-      </time>
+      <div className="text-sm text-gray-600">
+        <time dateTime={date}>{date}</time>
+        {repo && (
+          <ExternalLink className="ml-2" href={repo}>
+            <FontAwesomeIcon icon={faGithub} />
+          </ExternalLink>
+        )}
+      </div>
       <WithLink slug={slug}>
         <h1 className="font-bold">{title}</h1>
       </WithLink>

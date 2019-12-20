@@ -40,12 +40,13 @@ export default () => {
         </Paragraph>
       </Section>
       <Section>
-        {posts.map(({ id, slug, title, date, excerptAst }) => (
+        {posts.map(({ id, slug, title, date, repo, excerptAst }) => (
           <Post
             key={id}
             slug={slug}
             title={title}
             date={date}
+            repo={repo}
             htmlAst={excerptAst}
           />
         ))}

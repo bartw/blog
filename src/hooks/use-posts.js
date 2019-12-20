@@ -16,6 +16,7 @@ export const usePosts = () => {
               frontmatter {
                 title
                 date
+                repo
               }
               excerptAst(pruneLength: 250)
             }
@@ -29,7 +30,7 @@ export const usePosts = () => {
       node: {
         id,
         fields: { slug },
-        frontmatter: { title, date },
+        frontmatter: { title, date, repo },
         excerptAst
       }
     }) => ({
@@ -37,6 +38,7 @@ export const usePosts = () => {
       slug,
       title,
       date,
+      repo,
       excerptAst
     })
   );
