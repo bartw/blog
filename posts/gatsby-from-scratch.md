@@ -4,6 +4,7 @@ date: "2019-12-19"
 repo: "https://github.com/bartw/gatsby-from-scratch"
 published: true
 ---
+
 Time to start building.
 
 First thing to do is make some technology choices. I'm pretty sure I want a static site generator for my blog. [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) is my current favorite programming language. [React](https://reactjs.org/) is my current favorite UI library. This leaves me with [Next.js](https://nextjs.org/) or [Gatsby](https://www.gatsbyjs.org/). I went with Gatsby because I already built some stuff with it. Next.js is probably great too, maybe next time.

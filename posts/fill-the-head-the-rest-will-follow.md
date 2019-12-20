@@ -1,7 +1,8 @@
 ---
 title: "Fill The Head The Rest Will Follow"
 date: "2019-12-20"
-published: false
+repo: "https://github.com/bartw/fill-the-head-the-rest-will-follow"
+published: true
 ---
 
 In the previous post I created a basic website, this post is about filling it up.
@@ -66,6 +67,11 @@ module.exports = {
 
 I centralized the metadata of my site in a `siteMetadata` object in `gatsby-config.js`. This makes the data accessible for [static queries](https://www.gatsbyjs.org/docs/static-query/).
 
+```shell
+mkdir src/hooks
+touch src/hooks/use-site-metadata.js
+```
+
 `use-site-metadata.js`
 
 ```js
@@ -108,6 +114,7 @@ export default () => {
         <title>{title}</title>
         <meta name="description" content={description} />
       </Helmet>
+      <h1>{title}</h1>
       <div>Hello world!</div>
     </>
   );
@@ -153,4 +160,6 @@ module.exports = {
 };
 ```
 
+I installed the [gatsby-plugin-manifest](https://www.gatsbyjs.org/packages/gatsby-plugin-manifest/) plugin and added some configuration to `gatsby-config.js`.
 
+Now when I add my site to my phone's homescreen it has a nice splash screen.
