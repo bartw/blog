@@ -1,6 +1,8 @@
+const title = `Bart Wijnants' Blog`;
+
 module.exports = {
   siteMetadata: {
-    title: `Bart Wijnants' Blog`,
+    title,
     siteUrl: `https://dev.bartwijnants.be`,
     description: `Blog of Bart Wijnants`
   },
@@ -87,7 +89,7 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
-            title: "Bart Wijnants' Blog"
+            title
           }
         ]
       }
@@ -103,7 +105,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Bart Wijnants' Blog`,
+        name: title,
         short_name: `Blog`,
         start_url: `/`,
         background_color: `#ffffff`,
