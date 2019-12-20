@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 import rehypeReact from "rehype-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faComments, faEye } from "@fortawesome/free-regular-svg-icons";
+import { faStar, faCodeBranch } from "@fortawesome/free-solid-svg-icons";
 import Paragraph from "./paragraph";
 import ExternalLink from "./external-link";
 import TextExternalLink from "./text-external-link";
@@ -24,10 +26,15 @@ const WithLink = ({ slug, children }) =>
 export default ({ date, slug, title, repo, htmlAst }) => (
   <article className="mt-4">
     <header>
-      <div className="text-sm text-gray-600">
-        <time dateTime={date}>{date}</time>
-        {repo && (
-          <ExternalLink className="ml-2" href={repo}>
+      <div className="flex justify-between flex-wrap text-sm text-gray-600">
+        <time className="block mr-2" dateTime={date}>
+          {date}
+        </time>
+        {!slug && repo && (
+          <ExternalLink className="block" href={repo}>
+            <FontAwesomeIcon icon={faEye} /> watch,{" "}
+            <FontAwesomeIcon icon={faStar} /> star or{" "}
+            <FontAwesomeIcon icon={faCodeBranch} /> fork on{" "}
             <FontAwesomeIcon icon={faGithub} />
           </ExternalLink>
         )}
@@ -37,10 +44,17 @@ export default ({ date, slug, title, repo, htmlAst }) => (
       </WithLink>
     </header>
     <div className="mt-2">{renderAst(htmlAst)}</div>
-    {slug && (
-      <Link className="text-sm text-gray-600" to={slug}>
-        Click here to continue reading
-      </Link>
-    )}
+    <footer className="text-sm text-gray-600">
+      {slug && <Link to={slug}>Click here to continue reading</Link>}
+      {!slug && repo && (
+        <ExternalLink className="block mt-4" href={`${repo}/issues`}>
+          <FontAwesomeIcon icon={faComments} />
+          <span className="ml-2">
+            Typos, problems or comments? Click here to connect using GitHub
+            issues.
+          </span>
+        </ExternalLink>
+      )}
+    </footer>
   </article>
 );
