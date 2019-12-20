@@ -8,10 +8,11 @@ import { faStar, faCodeBranch } from "@fortawesome/free-solid-svg-icons";
 import Paragraph from "./paragraph";
 import ExternalLink from "./external-link";
 import TextExternalLink from "./text-external-link";
+import Header from "./header";
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-  components: { p: Paragraph, a: TextExternalLink }
+  components: { p: Paragraph, a: TextExternalLink, h2: Header }
 }).Compiler;
 
 const WithLink = ({ slug, children }) =>
