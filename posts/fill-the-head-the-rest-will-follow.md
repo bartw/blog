@@ -6,6 +6,10 @@ published: false
 
 In the previous post I created a basic website, this post is about filling it up.
 
+I started with stuffing the `<head>`. This is not something trivial using React, but Gatsby has a [plugin](https://www.gatsbyjs.org/plugins/) for just about everything.
+
+Adding a plugin to Gatsby is as simple as installing it and adding it to `gatsby-config.js`.
+
 ## Helmet
 
 ```shell
@@ -37,15 +41,15 @@ export default () => (
 );
 ```
 
-I started with stuffing the `<head>`. This is not something trivial using React, but Gatsby has a [plugin](https://www.gatsbyjs.org/plugins/) for just about everything.
-
-Adding a plugin to Gatsby is as simple as installing it and adding it to `gatsby-config.js`.
-
 I use [gatsby-plugin-react-helmet](https://www.gatsbyjs.org/packages/gatsby-plugin-react-helmet/) and they use [react-helmet](https://github.com/nfl/react-helmet).
 
 In `index.js` I added the title and some metadata of my website. Let's hope I can handle all the traffic coming from [Google](https://www.google.com/) now that I have [SEO](https://support.google.com/webmasters/answer/7451184?hl=en).
 
 ## GraphQL
+
+The title and description of my website seems like data that I might need mutliple times in different places.
+
+Gatsby uses [GraphQL](https://graphql.org/) to reuse common data in different places.
 
 `gatsby-config.js`
 
@@ -59,6 +63,8 @@ module.exports = {
   plugins: [`gatsby-plugin-react-helmet`]
 };
 ```
+
+I centralized the metadata of my site in a `siteMetadata` object in `gatsby-config.js`. This makes the data accessible for [static queries](https://www.gatsbyjs.org/docs/static-query/).
 
 `use-site-metadata.js`
 
@@ -108,7 +114,11 @@ export default () => {
 };
 ```
 
+I created a [custom react hook](https://reactjs.org/docs/hooks-custom.html) to use my site metadata in different components. It is just a little extra abstraction on top of the `useStaticQuery` hook provided by Gatsby.
+
 ## Manifest
+
+I expect everyone to add my blog on their phone homescreen. This means it needs to some extra stuff, [PWA](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps) stuff. I don't really think it will see a lot of use but it's so easy to do with Gatsby so I'm just going ahead with it.
 
 ```shell
 npm install --save gatsby-plugin-manifest
@@ -143,22 +153,4 @@ module.exports = {
 };
 ```
 
-```js
-module.exports = {
-  plugins: [
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `My Website Title`,
-        short_name: `Short`,
-        start_url: `/`,
-        background_color: `#266dd3`,
-        theme_color: `#353535`,
-        display: `standalone`,
-        icon: `src/images/icon.svg`
-      }
-    }
-  ]
-};
-```
+
