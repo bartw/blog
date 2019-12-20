@@ -41,7 +41,7 @@ mkdir src/pages
 touch src/pages/index.js
 ```
 
-```js
+```jsx
 import React from "react";
 
 export default () => <div>Hello world!</div>;
