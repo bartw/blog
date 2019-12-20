@@ -18,7 +18,7 @@ export default ({ children }) => (
         <Link to="/">
           <img className="inline-block w-10 mr-4" alt="logo" src={logo} />
           <h1 className="inline-block mr-4 align-middle font-bold">
-            Bart Wijnants's Blog
+            Bart Wijnants' Blog
           </h1>
         </Link>
         <div className="align-middle">
