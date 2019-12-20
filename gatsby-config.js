@@ -106,8 +106,8 @@ module.exports = {
         name: `Bart Wijnants' Blog`,
         short_name: `Blog`,
         start_url: `/`,
-        background_color: `#000000`,
-        theme_color: `#ffffff`,
+        background_color: `#ffffff`,
+        theme_color: `#000000`,
         display: `standalone`,
         icon: `src/images/logo.svg`
       }
