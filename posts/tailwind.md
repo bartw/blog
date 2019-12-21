@@ -8,7 +8,7 @@ Now that I have real website with great SEO, it is time to make it look great to
 
 I thought about creating all styling from scratch, but that is a lot of work. Instead I searched for a [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) framework that can do the heavy lifting for me.
 
-I looked at [Bulma](https://bulma.io/), [Tachyons](https://tachyons.io/) and [Tailwind](https://tailwindcss.com/). I chose Tailwind, for no particular reason but I had to choose something. 
+I looked at [Bulma](https://bulma.io/), [Tachyons](https://tachyons.io/) and [Tailwind](https://tailwindcss.com/). I chose Tailwind, for no particular reason but I had to choose something.
 
 I hope I won't regret it.
 
@@ -65,5 +65,5 @@ module.exports = {
 `gatsby-browser.js`
 
 ```js
-import "./src/global.css"
+import "./src/global.css";
 ```
