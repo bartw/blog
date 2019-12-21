@@ -11,6 +11,8 @@ I started with stuffing the `<head>`. This is not something trivial using React,
 
 Adding a plugin to Gatsby is as simple as installing it and adding it to `gatsby-config.js`.
 
+The code in this post continues where the [code](https://github.com/bartw/gatsby-from-scratch) from the previous post stopped.
+
 ## Helmet
 
 ```shell
