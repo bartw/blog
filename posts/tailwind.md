@@ -1,6 +1,7 @@
 ---
 title: "Tailwind"
 date: "2019-12-21"
+summary: "Use the Tailwind CSS framework in a Gatsby site."
 published: false
 ---
 

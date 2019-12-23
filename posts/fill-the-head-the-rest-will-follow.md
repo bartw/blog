@@ -2,6 +2,7 @@
 title: "Fill The Head The Rest Will Follow"
 date: "2019-12-20"
 repo: "https://github.com/bartw/fill-the-head-the-rest-will-follow"
+summary: "Add a header and manifest to a Gatsby site using some basic GraphQL."
 published: true
 ---
 

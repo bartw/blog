@@ -2,6 +2,7 @@
 title: "Gatsby From Scratch"
 date: "2019-12-19"
 repo: "https://github.com/bartw/gatsby-from-scratch"
+summary: "Create a very simple Gatsby site from scratch without using a starter."
 published: true
 ---
 

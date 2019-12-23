@@ -17,14 +17,11 @@ export default ({ children }) => {
         <meta name="description" content={description} />
       </Helmet>
       <div className="bg-white px-5 md:px-10 lg:px-32 py-10 antialiased">
-        <header className="flex items-center justify-between flex-wrap text-black text-xl">
+        <header className="flex justify-between flex-wrap text-black text-xl">
           <Link to="/">
-            <img className="inline-block w-10 mr-4" alt="logo" src={logo} />
-            <h1 className="inline-block mr-4 align-middle font-bold">
-              {title}
-            </h1>
+            <img className="inline-block w-16" alt="logo" src={logo} />
           </Link>
-          <div className="align-middle">
+          <div>
             <ExternalLink href="https://bartwijnants.be">
               <FontAwesomeIcon icon={faAddressCard} fixedWidth />
             </ExternalLink>

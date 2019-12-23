@@ -19,9 +19,9 @@ export const usePosts = () => {
               frontmatter {
                 title
                 date
-                repo
+                formattedDate: date(formatString: "MMMM Do, YYYY")
+                summary
               }
-              excerptAst(pruneLength: 250)
             }
           }
         }
@@ -33,16 +33,15 @@ export const usePosts = () => {
       node: {
         id,
         fields: { slug },
-        frontmatter: { title, date, repo },
-        excerptAst
+        frontmatter: { title, date, formattedDate, summary }
       }
     }) => ({
       id,
       slug,
       title,
       date,
-      repo,
-      excerptAst
+      formattedDate,
+      summary
     })
   );
 };
