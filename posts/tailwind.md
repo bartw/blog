@@ -104,7 +104,7 @@ As with all Gatsby plugins I had to add it to my `gatsby-config.js`.
 import "./src/global.css";
 ```
 
-I created a `global.css` file to load all Tailwind dependencies and then used `gatsby-browser.js` to include `global.css` on all pages.
+I created a `global.css` file to load all Tailwind dependencies and then used [gatsby-browser.js](https://www.gatsbyjs.org/docs/api-files-gatsby-browser/) to include `global.css` on all pages.
 
 `index.js`
 
