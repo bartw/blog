@@ -1,6 +1,6 @@
 ---
 title: "Tailwind"
-date: "2019-12-21"
+date: "2019-12-23"
 repo: "https://github.com/bartw/tailwind"
 summary: "Use the Tailwind CSS framework in a Gatsby site."
 published: true
