@@ -113,7 +113,7 @@ export default () => {
   const { title, description } = useSiteMetadata();
   return (
     <>
-      <Helmet>
+      <Helmet htmlAttributes={{ lang: "en" }}>
         <title>{title}</title>
         <meta name="description" content={description} />
       </Helmet>
@@ -125,6 +125,52 @@ export default () => {
 ```
 
 I created a [custom react hook](https://reactjs.org/docs/hooks-custom.html) to use my site metadata in different components. It is just a little extra abstraction on top of the `useStaticQuery` hook provided by Gatsby.
+
+I then used this hook to get the site metadata in `index.js`. The `<Helmet>` component fills up the html `<head>` component.
+
+My html went from:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+  </head>
+  <body>
+    ...
+  </body>
+</html>
+```
+
+to
+
+```html
+<!DOCTYPE html>
+<html lang="en" data-react-helmet="lang">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>My Website</title>
+    <meta
+      name="description"
+      content="The best website in the world"
+      data-react-helmet="true"
+    />
+  </head>
+  <body>
+    ...
+  </body>
+</html>
+```
 
 ## Manifest
 
@@ -165,4 +211,71 @@ module.exports = {
 
 I installed the [gatsby-plugin-manifest](https://www.gatsbyjs.org/packages/gatsby-plugin-manifest/) plugin and added some configuration to `gatsby-config.js`.
 
-Now when I add my site to my phone's homescreen it has a nice splash screen.
+Now my head is full of stuff!
+
+```html
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta name="note" content="environment=development" />
+  <title>My Website</title>
+  <link
+    rel="icon"
+    href="/icons/icon-48x48.png?v=25c1108dca65f3b5b5f7f91dd3c5dfbb"
+  />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#000000" />
+  <link
+    rel="apple-touch-icon"
+    sizes="48x48"
+    href="/icons/icon-48x48.png?v=25c1108dca65f3b5b5f7f91dd3c5dfbb"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="72x72"
+    href="/icons/icon-72x72.png?v=25c1108dca65f3b5b5f7f91dd3c5dfbb"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="96x96"
+    href="/icons/icon-96x96.png?v=25c1108dca65f3b5b5f7f91dd3c5dfbb"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="144x144"
+    href="/icons/icon-144x144.png?v=25c1108dca65f3b5b5f7f91dd3c5dfbb"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="192x192"
+    href="/icons/icon-192x192.png?v=25c1108dca65f3b5b5f7f91dd3c5dfbb"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="256x256"
+    href="/icons/icon-256x256.png?v=25c1108dca65f3b5b5f7f91dd3c5dfbb"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="384x384"
+    href="/icons/icon-384x384.png?v=25c1108dca65f3b5b5f7f91dd3c5dfbb"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="512x512"
+    href="/icons/icon-512x512.png?v=25c1108dca65f3b5b5f7f91dd3c5dfbb"
+  />
+  <script src="/socket.io/socket.io.js"></script>
+  <meta
+    name="description"
+    content="The best website in the world"
+    data-react-helmet="true"
+  />
+</head>
+```
+
+It also shows a favicon in the browser tab. And when I add my site to my phone's homescreen it has a nice splash screen.

@@ -117,7 +117,7 @@ export default () => {
   const { title, description } = useSiteMetadata();
   return (
     <>
-      <Helmet>
+      <Helmet htmlAttributes={{ lang: "en" }}>
         <title>{title}</title>
         <meta name="description" content={description} />
       </Helmet>
