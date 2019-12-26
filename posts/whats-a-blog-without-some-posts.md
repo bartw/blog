@@ -6,7 +6,15 @@ summary: "Turn a Gatsby site into a blog with posts in Markdown."
 published: false
 ---
 
+I was going to build a blog about building a blog but so far I've only got a website.
+
+This post will turn my website into a blog by adding posts to it.
+
+The code in this post continues where the [code](https://github.com/bartw/tailwind) from the previous post stopped.
+
 ## Turn a Markdown file to a page
+
+I'm going to write my posts in [Markdown](https://daringfireball.net/projects/markdown/).
 
 ```shell
 mkdir posts
@@ -25,6 +33,10 @@ date: "2019-12-23"
 
 A paragraph of text with a [link](https://dev.bartwijnants.be/).
 ```
+
+I created a new folder posts and added a really simple Markdown file to it. At the top of the Markdown file there some frontmatter. The frontmatter is metadata about the post. For starters I went with the title and the date as frontmatter.
+
+Now I'm going to add this post to my site.
 
 ```shell
 npm install --save gatsby-source-filesystem gatsby-transformer-remark
@@ -273,3 +285,5 @@ export default () => {
   );
 };
 ```
+
+## Layout
