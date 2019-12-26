@@ -83,42 +83,11 @@ module.exports = {
 };
 ```
 
-`post.js`
+Offcourse I started with adding some plugins, [gatsby-source-filesystem](https://www.gatsbyjs.org/packages/gatsby-source-filesystem/) and [gatsby-transformer-remark](https://www.gatsbyjs.org/packages/gatsby-transformer-remark/).
 
-```js
-import React from "react";
-import { graphql } from "gatsby";
+I added the plugins to `gatsby-config.js` and told `gatsby-source-filesystem` where to find my posts.
 
-export default ({
-  data: {
-    markdownRemark: {
-      frontmatter: { title, date, formattedDate },
-      html
-    }
-  }
-}) => {
-  return (
-    <div>
-      <time dateTime={date}>{formattedDate}</time>
-      <h1>{title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-    </div>
-  );
-};
-
-export const query = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        date
-        formattedDate: date(formatString: "MMMM Do, YYYY")
-      }
-      html
-    }
-  }
-`;
-```
+These plugins now make sure all `.md` files in the `posts` directory are queryable by GraphQL.
 
 `gatsby-node.js`
 
@@ -164,13 +133,66 @@ exports.createPages = async ({ graphql, actions }) => {
 };
 ```
 
+The [gatsby-node.js](https://www.gatsbyjs.org/docs/api-files-gatsby-node/) runs while building my site.
+
+I use it to do 2 things, add an extra field to my Markdown posts and create a page for each Markdown post.
+
+The field I want to add is the [slug](https://en.wikipedia.org/wiki/Clean_URL#Slug) field.
+
+To create a page for each post I query all Markdown posts and for each of them use the [createPage](https://www.gatsbyjs.org/docs/actions/#createPage) action that Gatsby provides. To know how to render a post I use a template component.
+
+`post.js`
+
+```js
+import React from "react";
+import { graphql } from "gatsby";
+
+export default ({
+  data: {
+    markdownRemark: {
+      frontmatter: { title, date, formattedDate },
+      html
+    }
+  }
+}) => {
+  return (
+    <div>
+      <time dateTime={date}>{formattedDate}</time>
+      <h1>{title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: html }} />
+    </div>
+  );
+};
+
+export const query = graphql`
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
+        date
+        formattedDate: date(formatString: "MMMM Do, YYYY")
+      }
+      html
+    }
+  }
+`;
+```
+
+The `post.js` template component uses the post slug to query the post data.
+
+The `gatsby-transformer-remark` turns the Markdown into html that can be inserted into a div in a [dangerous](https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml) way.
+
 ```shell
 npm start
 ```
 
-Browse to `http://localhost:8000/my-first-post`
+Now I can start my website and browse to `http://localhost:8000/my-first-post` to see it in action.
+
+Nice.
 
 ## List all posts
+
+On my home page I want to have a list of all my posts. To make this a little more visible I'll first create some more dummy posts.
 
 ```shell
 touch posts/my-second-post.md
@@ -285,5 +307,10 @@ export default () => {
   );
 };
 ```
+
+I created a `use-posts.js` hook that uses GraphQL to query all my posts and included that hook into the `index.js` file.
+Then I mapped each post with a link.
+
+Clean and easy.
 
 ## Layout
