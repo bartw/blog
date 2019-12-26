@@ -314,3 +314,109 @@ Then I mapped each post with a link.
 Clean and easy.
 
 ## Layout
+
+```shell
+mkdir src/components
+touch src/components/layout.js
+```
+
+My website is now a real blog. But the posts seem a little disconnected from the homepage.
+
+To make it all look better, I'm going to create a layout for my pages.
+
+`layout.js`
+
+```js
+import React from "react";
+import { Helmet } from "react-helmet";
+import { useSiteMetadata } from "../hooks/use-site-metadata";
+
+export default ({ children }) => {
+  const { title, description } = useSiteMetadata();
+  return (
+    <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+      </Helmet>
+      <div className="p-20">
+        <h1 className="font-bold text-xl">{title}</h1>
+        {children}
+      </div>
+    </>
+  );
+};
+```
+
+I just extracted the parts I want to repeat on my post pages from my homepage.
+
+`index.js`
+
+```js
+import React from "react";
+import { Link } from "gatsby";
+import { usePosts } from "../hooks/use-posts";
+import Layout from "../components/layout";
+
+export default () => (
+  <Layout>
+    <div className="mt-4">Hello world!</div>
+    <div className="mt-4">
+      {usePosts().map(({ id, slug, title, date, formattedDate }) => (
+        <div key={id} className="mt-2">
+          <time dateTime={date}>{formattedDate}</time>
+          <Link to={slug}>
+            <h1>{title}</h1>
+          </Link>
+        </div>
+      ))}
+    </div>
+  </Layout>
+);
+```
+
+Then in `index.js` I can replace thoe parts with my new `Layout` component.
+
+`post.js`
+
+```js
+import React from "react";
+import { graphql } from "gatsby";
+import Layout from "../components/layout";
+
+export default ({
+  data: {
+    markdownRemark: {
+      frontmatter: { title, date, formattedDate },
+      html
+    }
+  }
+}) => {
+  return (
+    <Layout>
+      <div className="mt-4">
+        <time dateTime={date}>{formattedDate}</time>
+        <h1>{title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </div>
+    </Layout>
+  );
+};
+
+export const query = graphql`
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
+        date
+        formattedDate: date(formatString: "MMMM Do, YYYY")
+      }
+      html
+    }
+  }
+`;
+```
+
+In `post.js` I can wrap the content with the `Layout` component.
+
+Now all my pages look like they belong together. I love React.
