@@ -1,9 +1,9 @@
 ---
 title: "What's a blog without some posts"
-date: "2019-12-25"
+date: "2019-12-26"
 repo: "https://github.com/bartw/whats-a-blog-without-some-posts"
 summary: "Turn a Gatsby site into a blog with posts in Markdown."
-published: false
+published: true
 ---
 
 I was going to build a blog about building a blog but so far I've only got a website.
