@@ -315,14 +315,14 @@ Clean and easy.
 
 ## Layout
 
+My website is now a real blog. But the posts seem a little disconnected from the homepage.
+
+To make it all look better, I'm going to create a layout for my pages.
+
 ```shell
 mkdir src/components
 touch src/components/layout.js
 ```
-
-My website is now a real blog. But the posts seem a little disconnected from the homepage.
-
-To make it all look better, I'm going to create a layout for my pages.
 
 `layout.js`
 
