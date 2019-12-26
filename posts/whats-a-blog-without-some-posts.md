@@ -71,6 +71,7 @@ module.exports = {
         icon: `src/images/icon.svg`
       }
     },
+    // highlight-start
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -79,6 +80,7 @@ module.exports = {
       }
     },
     `gatsby-transformer-remark`
+    // highlight-end
   ]
 };
 ```
@@ -292,6 +294,7 @@ export default () => {
       <div className="p-20">
         <h1 className="font-bold text-xl">{title}</h1>
         <div className="mt-4">Hello world!</div>
+        // highlight-start
         <div className="mt-4">
           {usePosts().map(({ id, slug, title, date, formattedDate }) => (
             <div key={id} className="mt-2">
@@ -302,6 +305,7 @@ export default () => {
             </div>
           ))}
         </div>
+        // highlight-end
       </div>
     </>
   );
@@ -359,6 +363,7 @@ import { usePosts } from "../hooks/use-posts";
 import Layout from "../components/layout";
 
 export default () => (
+  // highlight-next-line
   <Layout>
     <div className="mt-4">Hello world!</div>
     <div className="mt-4">
@@ -371,6 +376,7 @@ export default () => (
         </div>
       ))}
     </div>
+  // highlight-next-line
   </Layout>
 );
 ```
@@ -393,12 +399,14 @@ export default ({
   }
 }) => {
   return (
+    // highlight-next-line
     <Layout>
       <div className="mt-4">
         <time dateTime={date}>{formattedDate}</time>
         <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
+    // highlight-next-line
     </Layout>
   );
 };

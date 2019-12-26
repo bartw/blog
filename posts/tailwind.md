@@ -68,6 +68,7 @@ const siteMetadata = {
 module.exports = {
   siteMetadata,
   plugins: [
+    // highlight-next-line
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     {
