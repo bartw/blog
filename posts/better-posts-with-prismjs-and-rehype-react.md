@@ -245,3 +245,110 @@ and `htmlAst` looks like this:
 I then created a `renderAst` function that uses the abstract syntax tree to render a React component that uses my custom components.
 
 I'm quite hyped about this.
+
+## Code mode
+
+My fourth post contains some code.
+
+````markdown
+---
+title: "My fourth post"
+date: "2020-01-01"
+---
+
+A short intro
+
+## subtitle
+
+The text of my fourth post.
+
+```js
+const code = "this is code";
+
+const execute = code => {
+  console.log(code);
+};
+
+execute(code);
+```
+````
+
+This code is transformed to html like this:
+
+```html
+<pre><code class="language-js">const code = "this is code";
+
+const execute = code =&gt; {
+  console.log(code);
+};
+
+execute(code);
+</code></pre>
+```
+
+Tailwind has some support for this and styles it with a [monospace font](https://en.wikipedia.org/wiki/Monospaced_font).
+
+But I want to have some quality syntax highlighting in there. To enable syntax highlighting I'm going to use [Prims](https://prismjs.com/).
+
+```shell
+npm install --save gatsby-remark-prismjs prismjs
+```
+
+`gatsby-config.js`
+
+```js
+const siteMetadata = {
+  title: `My Website`,
+  siteUrl: `https://my.web.site`,
+  description: `The best website in the world`
+};
+
+module.exports = {
+  siteMetadata,
+  plugins: [
+    `gatsby-plugin-postcss`,
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: siteMetadata.title,
+        short_name: `Short`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#000000`,
+        display: `standalone`,
+        icon: `src/images/icon.svg`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/posts`
+      }
+    },
+    // highlight-start
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-prismjs`]
+      }
+    }
+    // highlight-end
+  ]
+};
+```
+
+`gatsby-browser.js`
+
+```js
+import "./src/styles/global.css";
+// highlight-next-line
+import "prismjs/themes/prism-tomorrow.css";
+```
+
+I installed [gatsby-remark-prismjs](https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/) and `prismjs`. And added `gatsby-remark-prismjs` as a plugin of `gatsby-transformer-remark` in `gatsby-config.js`.
+
+In `gatsby-browser.js` I imported `prism-tomorrow.css`, this is one of the built-in themes.
+
+And that's all I needed to get proper syntax highlighting.
