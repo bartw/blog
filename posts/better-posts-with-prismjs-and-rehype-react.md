@@ -430,3 +430,5 @@ import "./src/highlight.css";
 ```
 
 I created a separate `highlight.css` file to add to extra css required to make highlighting work and also imported it in `gatsby-browser.js`.
+
+Now I have a trendy tech blog.
