@@ -290,7 +290,7 @@ execute(code);
 
 Tailwind has some support for this and styles it with a [monospace font](https://en.wikipedia.org/wiki/Monospaced_font).
 
-But I want to have some quality syntax highlighting in there. To enable syntax highlighting I'm going to use [Prims](https://prismjs.com/).
+But I want to have some quality syntax highlighting in there. To enable syntax highlighting I'm going to use [Prism](https://prismjs.com/).
 
 ```shell
 npm install --save gatsby-remark-prismjs prismjs
