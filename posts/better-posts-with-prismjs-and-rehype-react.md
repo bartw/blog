@@ -250,6 +250,8 @@ I'm quite hyped about this.
 
 My fourth post contains some code.
 
+`my-fourth-post.md`
+
 ````markdown
 ---
 title: "My fourth post"
@@ -352,3 +354,79 @@ I installed [gatsby-remark-prismjs](https://www.gatsbyjs.org/packages/gatsby-rem
 In `gatsby-browser.js` I imported `prism-tomorrow.css`, this is one of the built-in themes.
 
 And that's all I needed to get proper syntax highlighting.
+
+## Line highlighting
+
+To enable [line highlighting](https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/#optional-add-line-highlighting-styles) there is some extra work required.
+
+`my-fourth-post.md`
+
+````markdown
+---
+title: "My fourth post"
+date: "2020-01-01"
+---
+
+A short intro
+
+## subtitle
+
+The text of my fourth post.
+
+```js
+const code = "this is code";
+
+const execute = code => {
+  // highlight-next-line
+  console.log(code); // this should be really long just so we can see highlighting works
+};
+
+execute(code);
+```
+````
+
+```shell
+touch src/highlight.css
+```
+
+`highlight.css`
+
+```css
+.gatsby-highlight-code-line {
+  background-color: #454545;
+  display: block;
+  margin-right: -1em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.25em solid #f99;
+}
+
+.gatsby-highlight {
+  background-color: #2d2d2d;
+  border-radius: 0.3em;
+  margin: 0.5em 0;
+  padding: 1em;
+  overflow: auto;
+}
+
+.gatsby-highlight pre[class*="language-"] {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  overflow: initial;
+  float: left;
+  min-width: 100%;
+}
+```
+
+`gatsby-browser.js`
+
+```js
+import "./src/styles/global.css";
+import "prismjs/themes/prism-tomorrow.css";
+// highlight-next-line
+import "./src/highlight.css";
+```
+
+I created a separate `highlight.css` file to add to extra css required to make highlighting work and also imported it in `gatsby-browser.js`.
