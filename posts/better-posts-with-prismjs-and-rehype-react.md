@@ -3,7 +3,7 @@ title: "Better Posts With Prismjs And Rehype-React"
 date: "2020-01-01"
 repo: "https://github.com/bartw/better-posts-with-prismjs-and-rehype-react"
 summary: "Improve Markdown to HTML parsing with syntax highlighting using Prismjs and custom React components using rehype-react"
-published: false
+published: true
 ---
 
 I've got a real blog going with easy Markdown posts. But the posts look dull.
