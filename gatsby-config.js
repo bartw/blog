@@ -55,16 +55,15 @@ module.exports = {
               edges.map(
                 ({
                   node: {
-                    excerpt,
                     fields: { slug },
-                    frontmatter: { title, date }
+                    frontmatter: { title, date, summary }
                   }
                 }) => {
                   const url = `${siteUrl}${slug}`;
                   return {
                     date,
                     title,
-                    description: excerpt,
+                    description: summary,
                     url,
                     guid: url
                   };
@@ -77,11 +76,11 @@ module.exports = {
                 ) {
                   edges {
                     node {
-                      excerpt(pruneLength: 250)
                       fields { slug }
                       frontmatter {
                         title
                         date
+                        summary
                       }
                     }
                   }

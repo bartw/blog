@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faAddressCard } from "@fortawesome/free-regular-svg-icons";
+import { faRss } from "@fortawesome/free-solid-svg-icons";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 import logo from "../images/logo.svg";
 import ExternalLink from "./external-link";
@@ -22,7 +23,10 @@ export default ({ children }) => {
             <img className="inline-block w-16" alt="logo" src={logo} />
           </Link>
           <div>
-            <ExternalLink href="https://bartwijnants.be">
+            <ExternalLink className="ml-2" href="/rss.xml">
+              <FontAwesomeIcon icon={faRss} fixedWidth />
+            </ExternalLink>
+            <ExternalLink className="ml-2" href="https://bartwijnants.be">
               <FontAwesomeIcon icon={faAddressCard} fixedWidth />
             </ExternalLink>
             <ExternalLink className="ml-2" href="https://github.com/bartw/blog">
