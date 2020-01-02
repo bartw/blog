@@ -112,6 +112,8 @@ module.exports = {
         display: `standalone`,
         icon: `src/images/logo.svg`
       }
-    }
+    },
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-robots-txt`
   ]
 };
