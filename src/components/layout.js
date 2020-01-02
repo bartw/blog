@@ -23,13 +23,21 @@ export default ({ children }) => {
             <img className="inline-block w-16" alt="logo" src={logo} />
           </Link>
           <div>
-            <ExternalLink className="ml-2" href="/rss.xml">
+            <ExternalLink className="ml-2" href="/rss.xml" ariaLabel="RSS">
               <FontAwesomeIcon icon={faRss} fixedWidth />
             </ExternalLink>
-            <ExternalLink className="ml-2" href="https://bartwijnants.be">
+            <ExternalLink
+              className="ml-2"
+              href="https://bartwijnants.be"
+              ariaLabel="Bio"
+            >
               <FontAwesomeIcon icon={faAddressCard} fixedWidth />
             </ExternalLink>
-            <ExternalLink className="ml-2" href="https://github.com/bartw/blog">
+            <ExternalLink
+              className="ml-2"
+              href="https://github.com/bartw/blog"
+              ariaLabel="GitHub"
+            >
               <FontAwesomeIcon icon={faGithub} fixedWidth />
             </ExternalLink>
           </div>

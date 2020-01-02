@@ -30,6 +30,7 @@ export default ({ date, formattedDate, title, repo, htmlAst }) => (
             <ExternalLink
               className="inline-block text-sm text-gray-600"
               href={repo}
+              ariaLabel="GitHub"
             >
               <FontAwesomeIcon icon={faGithub} />
             </ExternalLink>
