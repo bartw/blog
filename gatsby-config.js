@@ -28,6 +28,14 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/images`
+      }
+    },
+    `gatsby-plugin-sharp`,
+    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
@@ -96,7 +104,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [`gatsby-remark-prismjs`]
+        plugins: [`gatsby-remark-images`, `gatsby-remark-prismjs`]
       }
     },
     `gatsby-plugin-react-helmet`,
