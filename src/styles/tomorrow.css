@@ -133,10 +133,10 @@ pre[class*="language-"] {
 
 .gatsby-highlight {
   background-color: #2d2d2d;
-  border-radius: 0.3em;
   margin: 0.5em 0;
   padding: 1em;
   overflow: auto;
+  position: relative;
 }
 
 .gatsby-highlight pre[class*="language-"] {
@@ -146,4 +146,74 @@ pre[class*="language-"] {
   overflow: initial;
   float: left;
   min-width: 100%;
+}
+
+.gatsby-code-title {
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  margin-bottom: -0.5rem;
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem 1rem 0.5rem;
+  background-color: #2d2d2d;
+  color: #ccc;
+}
+
+.gatsby-highlight pre[class*="language-"] {
+  background-color: transparent;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  padding: 1.5rem 0px;
+}
+
+.gatsby-highlight pre[class*="language-"]::before {
+  color: #2d2d2d;
+  font-size: 0.75rem;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono,
+    Courier New, monospace;
+  letter-spacing: 0.075em;
+  line-height: 1;
+  position: absolute;
+  left: 1rem;
+  text-align: right;
+  text-transform: uppercase;
+  top: 0px;
+  border-radius: 0px 0px 4px 4px;
+  padding: 0.25rem 0.5rem;
+  background-color: #ccc;
+}
+
+.gatsby-highlight pre[class="language-jsx"]::before {
+  background-color: #61dafb;
+  content: "jsx";
+}
+
+.gatsby-highlight pre[class="language-js"]::before {
+  background-color: #f7df1e;
+  content: "js";
+}
+
+.gatsby-highlight pre[class="language-shell"]::before {
+  content: "shell";
+}
+
+.gatsby-highlight pre[class="language-json"]::before {
+  content: "json";
+}
+
+.gatsby-highlight pre[class="language-text"]::before {
+  content: "text";
+}
+
+.gatsby-highlight pre[class="language-html"]::before {
+  content: "html";
+  background: #005a9c;
+  color: white;
+}
+
+.gatsby-highlight pre[class="language-css"]::before {
+  content: "css";
+  background: #ff9800;
+  color: white;
 }

@@ -104,7 +104,11 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [`gatsby-remark-images`, `gatsby-remark-prismjs`]
+        plugins: [
+          `gatsby-remark-code-titles`,
+          `gatsby-remark-images`,
+          `gatsby-remark-prismjs`
+        ]
       }
     },
     `gatsby-plugin-react-helmet`,

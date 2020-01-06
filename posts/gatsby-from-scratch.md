@@ -21,9 +21,7 @@ echo "12" >> .nvmrc
 nvm use
 ```
 
-`.gitignore`
-
-```
+```text:title=.gitignore
 node_modules
 .cache
 public
@@ -44,7 +42,7 @@ mkdir src/pages
 touch src/pages/index.js
 ```
 
-```jsx
+```jsx:title=src/pages/index.js
 import React from "react";
 
 export default () => <div>Hello world!</div>;

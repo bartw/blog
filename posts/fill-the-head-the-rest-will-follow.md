@@ -20,17 +20,13 @@ The code in this post continues where the [code](https://github.com/bartw/gatsby
 npm install --save gatsby-plugin-react-helmet react-helmet
 ```
 
-`gatsby-config.js`
-
-```js
+```js:title=gatsby-config.js
 module.exports = {
   plugins: [`gatsby-plugin-react-helmet`]
 };
 ```
 
-`index.js`
-
-```js
+```js:title=src/pages/index.js
 import React from "react";
 import { Helmet } from "react-helmet";
 
@@ -55,9 +51,7 @@ The title and description of my website seems like data that I might need mutlip
 
 Gatsby uses [GraphQL](https://graphql.org/) to reuse common data in different places.
 
-`gatsby-config.js`
-
-```js
+```js:title=gatsby-config.js
 module.exports = {
   siteMetadata: {
     title: `My Website`,
@@ -75,9 +69,7 @@ mkdir src/hooks
 touch src/hooks/use-site-metadata.js
 ```
 
-`use-site-metadata.js`
-
-```js
+```js:title=src/hooks/use-site-metadata.js
 import { useStaticQuery, graphql } from "gatsby";
 
 export const useSiteMetadata = () => {
@@ -102,9 +94,7 @@ export const useSiteMetadata = () => {
 };
 ```
 
-`index.js`
-
-```js
+```js:title=src/pages/index.js
 import React from "react";
 import { Helmet } from "react-helmet";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
@@ -180,9 +170,7 @@ I expect everyone to add my blog on their phone homescreen. This means it needs 
 npm install --save gatsby-plugin-manifest
 ```
 
-`gatsby-config.js`
-
-```js
+```js:title=gatsby-config.js
 const siteMetadata = {
   title: `My Website`,
   siteUrl: `https://my.web.site`,

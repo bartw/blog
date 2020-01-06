@@ -32,9 +32,7 @@ I first installed the Tailwind npm package and the [gatsby-plugin-postcss](https
 
 [PostCSS](https://postcss.org/) is a tool for transforming CSS with Javascript. It is the CSS transformer that Tailwind uses under the hood so it seems logical to use this instead of [CSS-in-JS](https://cssinjs.org/) or [SCSS](https://sass-lang.com/).
 
-`tailwind.config.js`
-
-```js
+```js:title=tailwind.config.js
 module.exports = {
   theme: {
     extend: {}
@@ -46,9 +44,7 @@ module.exports = {
 
 The `tailwind.config.js` file was generated when I ran the `npx tailwind init` command. [Npx](https://www.npmjs.com/package/npx) is an easy way to run one of scripts without having to install any npm dependencies.
 
-`postcss.config.js`
-
-```js
+```js:title=postcss.config.js
 module.exports = () => ({
   plugins: [require("tailwindcss")]
 });
@@ -56,9 +52,7 @@ module.exports = () => ({
 
 All this file does is configure PostCSS to use Tailwind.
 
-`gatsby-config.js`
-
-```js
+```js:title=gatsby-config.js
 const siteMetadata = {
   title: `My Website`,
   siteUrl: `https://my.web.site`,
@@ -89,9 +83,7 @@ module.exports = {
 
 As with all Gatsby plugins I had to add it to my `gatsby-config.js`.
 
-`global.css`
-
-```css
+```css:title=src/global.css
 @tailwind base;
 
 @tailwind components;
@@ -99,17 +91,13 @@ As with all Gatsby plugins I had to add it to my `gatsby-config.js`.
 @tailwind utilities;
 ```
 
-`gatsby-browser.js`
-
-```js
+```js:title=gatsby-browser.js
 import "./src/global.css";
 ```
 
 I created a `global.css` file to load all Tailwind dependencies and then used [gatsby-browser.js](https://www.gatsbyjs.org/docs/api-files-gatsby-browser/) to include `global.css` on all pages.
 
-`index.js`
-
-```js
+```js:title=src/pages/index.js
 import React from "react";
 import { Helmet } from "react-helmet";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
