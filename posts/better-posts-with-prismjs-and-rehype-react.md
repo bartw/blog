@@ -16,9 +16,7 @@ The code in this post continues where the [code](https://github.com/bartw/whats-
 
 I've got a CSS framework in place to help me with styling. So I'll use that to improve the looks of my posts.
 
-`index.js`
-
-```js
+```js:title=src/pages/index.js
 import React from "react";
 import { Link } from "gatsby";
 import { usePosts } from "../hooks/use-posts";
@@ -46,9 +44,7 @@ export default () => (
 );
 ```
 
-`post.js`
-
-```js
+```js:title=src/templates/post.js
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
@@ -100,9 +96,7 @@ Of course there is a package to handle this problem, [rehype-react](https://gith
 npm install --save rehype-react
 ```
 
-`post.js`
-
-```js
+```js:title=src/templates/post.js
 import React from "react";
 import { graphql } from "gatsby";
 // highlight-next-line
@@ -250,9 +244,7 @@ I'm quite hyped about this.
 
 My fourth post contains some code.
 
-`my-fourth-post.md`
-
-````markdown
+````markdown:title=posts/my-fourth-post.md
 ---
 title: "My fourth post"
 date: "2020-01-01"
@@ -296,9 +288,7 @@ But I want to have some quality syntax highlighting in there. To enable syntax h
 npm install --save gatsby-remark-prismjs prismjs
 ```
 
-`gatsby-config.js`
-
-```js
+```js:title=gatsby-config.js
 const siteMetadata = {
   title: `My Website`,
   siteUrl: `https://my.web.site`,
@@ -341,9 +331,7 @@ module.exports = {
 };
 ```
 
-`gatsby-browser.js`
-
-```js
+```js:title=gatsby-browser.js
 import "./src/styles/global.css";
 // highlight-next-line
 import "prismjs/themes/prism-tomorrow.css";
@@ -359,9 +347,7 @@ And that's all I needed to get proper syntax highlighting.
 
 To enable [line highlighting](https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/#optional-add-line-highlighting-styles) there is some extra work required.
 
-`my-fourth-post.md`
-
-````markdown
+````markdown:title=posts/my-fourth-post.md
 ---
 title: "My fourth post"
 date: "2020-01-01"
@@ -389,9 +375,7 @@ execute(code);
 touch src/highlight.css
 ```
 
-`highlight.css`
-
-```css
+```css:title=src/highlight.css
 .gatsby-highlight-code-line {
   background-color: #454545;
   display: block;
@@ -420,9 +404,7 @@ touch src/highlight.css
 }
 ```
 
-`gatsby-browser.js`
-
-```js
+```js:title=gatsby-browser.js
 import "./src/styles/global.css";
 import "prismjs/themes/prism-tomorrow.css";
 // highlight-next-line

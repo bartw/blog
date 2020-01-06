@@ -21,9 +21,7 @@ mkdir posts
 touch posts/my-first-post.md
 ```
 
-`my-first-post.md`
-
-```markdown
+```markdown:title=posts/my-first-post.md
 ---
 title: "My first post"
 date: "2019-12-23"
@@ -45,9 +43,7 @@ mkdir src/templates
 touch src/templates/post.js
 ```
 
-`gatsby-config.js`
-
-```js
+```js:title=gatsby-config.js
 const siteMetadata = {
   title: `My Website`,
   siteUrl: `https://my.web.site`,
@@ -91,9 +87,7 @@ I added the plugins to `gatsby-config.js` and told `gatsby-source-filesystem` wh
 
 These plugins now make sure all `.md` files in the `posts` directory are queryable by GraphQL.
 
-`gatsby-node.js`
-
-```js
+```js:title=gatsby-node.js
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
@@ -143,9 +137,7 @@ The field I want to add is the [slug](https://en.wikipedia.org/wiki/Clean_URL#Sl
 
 To create a page for each post I query all Markdown posts and for each of them use the [createPage](https://www.gatsbyjs.org/docs/actions/#createPage) action that Gatsby provides. To know how to render a post I use a template component.
 
-`post.js`
-
-```js
+```js:title=src/templates/post.js
 import React from "react";
 import { graphql } from "gatsby";
 
@@ -201,9 +193,7 @@ touch posts/my-second-post.md
 touch posts/my-third-post.md
 ```
 
-`my-second-post.md`
-
-```markdown
+```markdown:title=posts/my-second-post.md
 ---
 title: "My second post"
 date: "2019-12-24"
@@ -214,9 +204,7 @@ date: "2019-12-24"
 The text of my second post.
 ```
 
-`my-third-post.md`
-
-```markdown
+```markdown:title=posts/my-third-post.md
 ---
 title: "My third post"
 date: "2019-12-25"
@@ -227,9 +215,7 @@ date: "2019-12-25"
 The text of my third post.
 ```
 
-`use-posts.js`
-
-```js
+```js:title=src/hooks/use-posts.js
 import { useStaticQuery, graphql } from "gatsby";
 
 export const usePosts = () => {
@@ -274,9 +260,7 @@ export const usePosts = () => {
 };
 ```
 
-`index.js`
-
-```js
+```js:title=src/pages/index.js
 import React from "react";
 import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
@@ -328,9 +312,7 @@ mkdir src/components
 touch src/components/layout.js
 ```
 
-`layout.js`
-
-```js
+```js:title=src/components/layout.js
 import React from "react";
 import { Helmet } from "react-helmet";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
@@ -354,9 +336,7 @@ export default ({ children }) => {
 
 I just extracted the parts I want to repeat on my post pages from my homepage.
 
-`index.js`
-
-```js
+```js:title=src/pages/index.js
 import React from "react";
 import { Link } from "gatsby";
 import { usePosts } from "../hooks/use-posts";
@@ -376,16 +356,14 @@ export default () => (
         </div>
       ))}
     </div>
-  // highlight-next-line
+    // highlight-next-line
   </Layout>
 );
 ```
 
-Then in `index.js` I can replace thoe parts with my new `Layout` component.
+Then in `index.js` I can replace the parts with my new `Layout` component.
 
-`post.js`
-
-```js
+```js:title=src/templates/post.js
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
@@ -406,7 +384,7 @@ export default ({
         <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
-    // highlight-next-line
+      // highlight-next-line
     </Layout>
   );
 };

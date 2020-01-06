@@ -16,9 +16,7 @@ I'll deploy my api to [Heroku](https://www.heroku.com/home). The main reason for
 
 I'm going to start with using the correct port. For local development port 3000 (or anything else) was ok. But when I deploy to Heroku, they want to be in charge of the port. I can just get it from the `PORT` env variable.
 
-`main.ts`
-
-```js
+```js:title=src/main.ts
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 
@@ -41,9 +39,7 @@ npm install --save rxjs
 npm install --save-dev rimraf
 ```
 
-`package.json`
-
-```json
+```json:title=package.json
 "scripts": {
     // highlight-next-line
     "build": "npm run clean && nest build",
@@ -58,9 +54,7 @@ npm install --save-dev rimraf
 
 Because I want to use `npm run start:prod` instead of `npm start` as the script to start the api I need to specify this in the Heroku specific [Procfile](https://devcenter.heroku.com/articles/procfile).
 
-`Procfile`
-
-```
+```text:title=Procfile
 web: npm run start:prod
 ```
 

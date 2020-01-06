@@ -26,9 +26,7 @@ nvm use
 npm init -y
 ```
 
-`.gitignore`
-
-```
+```text:title=.gitignore
 node_modules
 dist
 ```
@@ -48,9 +46,7 @@ touch tsconfig.json
 touch tsconfig.build.json
 ```
 
-`tsconfig.json`
-
-```json
+```json:title=tsconfig.json
 {
   "compilerOptions": {
     "module": "commonjs",
@@ -68,9 +64,7 @@ touch tsconfig.build.json
 }
 ```
 
-`tsconfig.build.json`
-
-```json
+```json:title=tsconfig.build.json
 {
   "extends": "./tsconfig.json"
 }
@@ -92,9 +86,7 @@ touch src/hello/hello.controller.ts
 touch src/hello/hello.service.ts
 ```
 
-`main.ts`
-
-```ts
+```ts:title=src/main.ts
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 
@@ -105,9 +97,7 @@ async function bootstrap() {
 bootstrap();
 ```
 
-`app.module.ts`
-
-```ts
+```ts:title=src/app.module.ts
 import { Module } from "@nestjs/common";
 import { HelloModule } from "./hello/hello.module";
 
@@ -115,9 +105,7 @@ import { HelloModule } from "./hello/hello.module";
 export class AppModule {}
 ```
 
-`hello.module.ts`
-
-```ts
+```ts:title=src/hello/hello.module.ts
 import { Module } from "@nestjs/common";
 import { HelloController } from "./hello.controller";
 import { HelloService } from "./hello.service";
@@ -129,9 +117,7 @@ import { HelloService } from "./hello.service";
 export class HelloModule {}
 ```
 
-`hello.controller.ts`
-
-```ts
+```ts:title=src/hello/hello.controller.ts
 import { Controller, Get, Param } from "@nestjs/common";
 import { HelloService } from "./hello.service";
 
@@ -146,9 +132,7 @@ export class HelloController {
 }
 ```
 
-`hello.service.ts`
-
-```ts
+```ts:title=src/hello/hello.service.ts
 import { Injectable } from "@nestjs/common";
 
 @Injectable()
@@ -169,7 +153,7 @@ echo "{}" >> .prettierrc
 Only thing left to do is add a script to format my code and one to start my application.
 After I run these scripts I can browse to `http://localhost:3000/hello/whatever` and see my NestJS api working!
 
-```json
+```json:title=package.json
 "scripts": {
   "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
   "start": "nest start --watch"

@@ -59,7 +59,7 @@ echo "{}" >> .prettierrc
 
 Gatsby ships with [Eslint](https://www.gatsbyjs.org/docs/eslint/) built in. But I also like me some [Prettier](https://prettier.io/) on the side.
 
-```json
+```json:title=package.json
 "scripts": {
   "build": "gatsby build",
   "develop": "gatsby develop",
