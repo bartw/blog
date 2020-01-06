@@ -194,6 +194,11 @@ pre[class*="language-"] {
   content: "js";
 }
 
+.gatsby-highlight pre[class="language-ts"]::before {
+  background-color: #f7df1e;
+  content: "ts";
+}
+
 .gatsby-highlight pre[class="language-shell"]::before {
   content: "shell";
 }
@@ -204,6 +209,10 @@ pre[class*="language-"] {
 
 .gatsby-highlight pre[class="language-text"]::before {
   content: "text";
+}
+
+.gatsby-highlight pre[class="language-markdown"]::before {
+  content: "markdown";
 }
 
 .gatsby-highlight pre[class="language-html"]::before {
